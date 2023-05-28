@@ -11,6 +11,8 @@ phases:
   pre_build:
     commands:
       - echo Pre-build started on `date`
+      - echo Installing dependencies
+      - npm install
       - echo Compiling the React code
       - npm run build
   build:
