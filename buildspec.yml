@@ -4,11 +4,14 @@ phases:
   install:
     commands:
       - echo Installing source NPM dependencies...
+      - nvm install 16.17.1
+      - nvm use 16.17.1
       - npm install
   pre_build:
     commands:
       - echo Pre-build started on `date`
       - echo Compiling the React code
+      - nvm use 16.17.1
       - npm run build
   build:
     commands:
