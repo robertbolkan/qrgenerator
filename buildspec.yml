@@ -2,24 +2,25 @@ version: 0.2
 
 phases:
   install:
+    runtime-versions:
+      nodejs: 16
     commands:
-    - echo Installing NVM...
-    - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
-    - export NVM_DIR="$HOME/.nvm"
-    - echo Installing node version 16.17.1...
-    - env -i NVM_DIR="$NVM_DIR" bash -c 'source "$NVM_DIR/nvm.sh" && nvm install 16.17.1'
+      - echo Installing NVM...
+      - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+      - export NVM_DIR="$HOME/.nvm"
+      - echo Installing node version 16.17.1...
+      - env -i NVM_DIR="$NVM_DIR" bash -c 'source "$NVM_DIR/nvm.sh" && nvm install 16.17.1'
+      - npm install -g npm@latest
   pre_build:
     commands:
       - echo Pre-build started on `date`
       - echo Installing dependencies
       - npm install
-      - echo Compiling the React code
-      - npm run build
   build:
     commands:
       - echo Build started on `date`
+      - echo Compiling the Node.js code...
+      - npm run build
+  post_build:
+    commands:
       - echo Build completed on `date`
-artifacts:
-  files:
-    - "**/*"
-  base-directory: build
