@@ -7,7 +7,7 @@ phases:
     - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
     - export NVM_DIR="$HOME/.nvm"
     - echo Installing node version 16.17.1...
-    - ". \"$NVM_DIR/nvm.sh\" && nvm install 16.17.1"
+    - env -i NVM_DIR="$NVM_DIR" bash -c 'source "$NVM_DIR/nvm.sh" && nvm install 16.17.1'
   pre_build:
     commands:
       - echo Pre-build started on `date`
