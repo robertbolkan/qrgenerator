@@ -30,7 +30,7 @@ const QRCodeGenerator = () => {
   };
 
   const handleGenerateClick = () => {
-    const baseURL = 'http://127.0.0.1:5174/'; // Change this to your live site's URL
+    const baseURL = 'https://qrbies.com/receiver'; // Change this to your live site's URL
     const queryParams = new URLSearchParams({
       bgColor,
       greeting,
