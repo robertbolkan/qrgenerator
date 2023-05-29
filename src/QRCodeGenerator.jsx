@@ -49,7 +49,7 @@ const QRCodeGenerator = () => {
 
   return (
     <div>
-      <h1>QR Code Generator</h1>
+      <h1>QRBIES</h1>
       <div>
         <label htmlFor="bgColor">Background Color: </label>
         <SketchPicker
