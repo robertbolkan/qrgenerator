@@ -20,5 +20,5 @@ phases:
       - node -v
 artifacts:
   files:
-    - generator/dist/**/*
+    - '**/*'
   base-directory: 'generator/dist'  # or 'build' or whatever your build output directory is
