@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './App.css';
+import './receiver.css';
 import { CSSTransition } from 'react-transition-group';
 
 function App() {
@@ -16,6 +16,8 @@ function App() {
   const [wrapPaper, setWrapPaper] = useState('');
   const [isTransitionFinished, setIsTransitionFinished] = useState(false);
   const [includeGiftWrap, setIncludeGiftWrap] = useState(true);
+
+  
 
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);

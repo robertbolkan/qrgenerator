@@ -49,7 +49,9 @@ const QRCodeGenerator = () => {
   };
 
   const handleGenerateClick = () => {
-    const baseURL = 'http://qrbies.com.s3-website-us-west-2.amazonaws.com/receiver'; // Change this to your live site's URL
+    // const baseURL = 'http://qrbies.com.s3-website-us-west-2.amazonaws.com/receiver'; // Change this to your live site's URL
+    const baseURL = 'http://127.0.0.1:5173/receiver'; // Change this to your live site's URL
+
     const queryParams = new URLSearchParams({
       bgColor,
       greeting,
