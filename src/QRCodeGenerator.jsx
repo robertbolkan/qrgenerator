@@ -29,6 +29,25 @@ const QRCodeGenerator = () => {
     navigate('/address');  // Change history.push to navigate
   };
 
+  {/* the is the test button to test if receiver works */}
+  const handleTestReceiverClick = () => {
+    const testParams = new URLSearchParams({
+      bgColor: 'FFC0CB',
+      greeting: 'Test Greeting',
+      message: 'Test Message',
+      image: 'https://example.com/test-image.png',
+      url: 'https://example.com/test-url',
+      to: 'Test To',
+      from: 'Test From',
+      wrapPaper: '../test-paper.jpg',
+      includeGiftWrap: 'true',
+      useExternalUrl: 'false'
+    });
+  
+    // This will navigate to the '/receiver' route with the test parameters
+    navigate(`/receiver?${testParams.toString()}`); 
+  };
+
   const handleGenerateClick = () => {
     const baseURL = 'http://qrbies.com.s3-website-us-west-2.amazonaws.com/receiver'; // Change this to your live site's URL
     const queryParams = new URLSearchParams({
@@ -148,8 +167,8 @@ const QRCodeGenerator = () => {
           content={() => qrCodeRef.current}
         />
       }
-
-{/* <button onClick={handleGenerateClick}>Generate QR Code</button> */}
+{/* the is the test button to test if receiver works */}
+<button onClick={handleTestReceiverClick}>Test QR Code Receiver</button>
 
 
 <button onClick={handleMailQRCodeClick}>Mail QR Code</button>
