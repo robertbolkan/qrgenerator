@@ -39,7 +39,7 @@ const QRCodeGenerator = () => {
       url: 'https://example.com/test-url',
       to: 'Test To',
       from: 'Test From',
-      wrapPaper: '../test-paper.jpg',
+      wrapPaper: '../wrapping_paper2.png',
       includeGiftWrap: 'true',
       useExternalUrl: 'false'
     });
