@@ -23,11 +23,17 @@ a:hover {
   color: #535bf2;
 }
 
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  padding: 20px;
+  padding: 0px;
 }
 
 h1 {
@@ -68,21 +74,14 @@ button:focus-visible {
 }
 
 .App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 100vh;
   width: 100vw;
   position: relative;
-  /* transition: background-color 2s; */
   overflow: hidden;
 }
-
-/* .present {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 200px;
-  height: 200px;
-} */
 
 .bow {
   position: absolute;

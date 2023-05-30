@@ -3,7 +3,7 @@ import { SketchPicker } from 'react-color';
 import QRCode from 'qrcode.react';
 import ReactToPrint from 'react-to-print';
 import { useNavigate } from 'react-router-dom';  // Change useHistory to useNavigate
-
+import './index.css';
 
 
 

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import './receiver.css';
 import { CSSTransition } from 'react-transition-group';
+import styles from './receiver.module.css';
 
 function App() {
   const [bgColor, setBgColor] = useState('#FFC0CB');
@@ -68,27 +68,27 @@ function App() {
       classNames="fade"
       onEntered={() => setWrapPaper('')}
     >
-      <div 
-        className="App" 
+      <div id="qrcode-receiver"
+        className={styles.App} 
         style={{ 
           backgroundColor: isBowClicked ? `#${bgColor}` : '', 
           backgroundImage: isBowClicked ? '' : `url(${wrapPaper})` 
         }}
       >
         {!isBowClicked && (
-          <div className={`plus-container ${isBowFalling ? 'clicked' : ''}`}>
-            <img src="/bow.png" alt="Bow" onClick={handleBowClick} className={`bow ${isBowFalling ? 'clicked' : ''}`} />
-            <div className={`horizontal-bar ${isBowFalling ? 'clicked' : ''}`}></div>
-            <div className={`vertical-bar ${isBowFalling ? 'clicked' : ''}`}></div>
-            <div className="gift-tag">
-              <div className="gift-tag-line">To: {toField}</div>
-              <div className="gift-tag-line">From: {fromField}</div>
+          <div id="qrcode-receiver" className={`${styles['plus-container']} ${isBowFalling ? styles.clicked : ''}`}>
+            <img src="/bow.png" alt="Bow" onClick={handleBowClick} className={`${styles.bow} ${isBowFalling ? styles.clicked : ''}`} />
+            <div id="qrcode-receiver" className={`${styles['horizontal-bar']} ${isBowFalling ? styles.clicked : ''}`}></div>
+            <div id="qrcode-receiver" className={`${styles['vertical-bar']} ${isBowFalling ? styles.clicked : ''}`}></div>
+            <div className={styles['gift-tag']}>
+              <div id="qrcode-receiver" className={styles['gift-tag-line']}>To: {toField}</div>
+              <div id="qrcode-receiver" className={styles['gift-tag-line']}>From: {fromField}</div>
             </div>
           </div>
         )}
         {isBowClicked && (
-          <div className={`present ${isBowClicked ? 'unwrapped' : ''}`}>
-            <header className="App-header">
+          <div id="qrcode-receiver" className={`${styles.present} ${isBowClicked ? styles.unwrapped : ''}`}>
+            <header className={styles['App-header']}>
               <h1>{greeting}</h1>
               <p>{message}</p>
               {image && <img src={image} alt="Valentine's Day" />}
