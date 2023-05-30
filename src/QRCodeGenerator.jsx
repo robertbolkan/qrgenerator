@@ -1,9 +1,10 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { SketchPicker } from 'react-color';
 import QRCode from 'qrcode.react';
 import ReactToPrint from 'react-to-print';
 import { useNavigate } from 'react-router-dom';  // Change useHistory to useNavigate
 import './index.css';
+
 
 
 
@@ -21,8 +22,17 @@ const QRCodeGenerator = () => {
   const [wrapPaper, setWrapPaper] = useState('');
   const [includeGiftWrap, setIncludeGiftWrap] = useState(true);
   const [externalURL, setExternalURL] = useState(false);
-
   const qrCodeRef = useRef();
+  const [dataUrl, setDataUrl] = useState(null);
+
+  useEffect(() => {
+    if (qrCodeRef.current && qrCodeRef.current.children[0]) {
+      setDataUrl(qrCodeRef.current.children[0].toDataURL('image/jpeg', 1.0));
+    }
+  }, [qrValue]);
+
+
+ 
   const [showNextForm, setShowNextForm] = useState(false);
 
   const handleMailQRCodeClick = () => {
@@ -171,7 +181,11 @@ const QRCodeGenerator = () => {
       }
 {/* the is the test button to test if receiver works */}
 <button onClick={handleTestReceiverClick}>Test QR Code Receiver</button>
-
+{dataUrl && (
+        <a href={dataUrl} download="QRCode.jpg">
+          <button>Download QR Code</button>
+        </a>
+      )}
 
 <button onClick={handleMailQRCodeClick}>Mail QR Code</button>
 
